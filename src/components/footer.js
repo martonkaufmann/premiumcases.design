@@ -22,10 +22,12 @@ const Footer = () => {
     return (
         <footer className="flex flex-col-reverse md:flex-row justify-between bg-secondary text-white px-4 xl:px-56 py-4">
             <section className="mt-8 md:mt-0">
-                <LogoImage className="w-12 mb-4 mx-auto" />
-                <h3 className="text-xl font-light text-center">
-                    {result.site.siteMetadata.title}
-                </h3>
+                <Link to="/">
+                    <LogoImage className="w-12 mb-4 mx-auto" />
+                    <h3 className="text-xl font-light text-center">
+                        {result.site.siteMetadata.title}
+                    </h3>
+                </Link>
             </section>
             <section className="space-y-8 md:space-y-0 md:flex md:space-x-16">
                 <section>

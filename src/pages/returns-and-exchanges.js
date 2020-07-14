@@ -1,18 +1,14 @@
-import React from 'react';
-import Layout from '../components/layout';
-import SEO from '../components/seo';
+import React from "react";
+import Layout from "../components/layout";
+import SEO from "../components/seo";
 
 const ReturnsAndExchangesPage = () => (
     <Layout>
         <SEO title="Returns And Exchanges" />
-        <section className="prose mx-auto">
-            <h1>
-                Returns And Exchanges
-            </h1>
+        <section className="prose mx-auto pt-8 px-12 md:px-0">
+            <h1>Returns And Exchanges</h1>
             <article>
-                <h3>
-                    Does Premium Cases guarantee its product?
-                </h3>
+                <h3>Does Premium Cases guarantee its product?</h3>
                 <p>
                     Of course! We're 100% committed to making you happy. Each
                     case is hand checked by a member of our team before it goes

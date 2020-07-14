@@ -1,14 +1,12 @@
-import React from 'react';
-import Layout from '../components/layout';
-import SEO from '../components/seo';
+import React from "react";
+import Layout from "../components/layout";
+import SEO from "../components/seo";
 
 const TermsAndConditionsPage = () => (
     <Layout>
         <SEO title="Terms And Conditions" />
-        <section className="prose mx-auto">
-            <h1>
-                Terms And Conditions
-            </h1>
+        <section className="prose mx-auto pt-8 px-12 md:px-0">
+            <h1>Terms And Conditions</h1>
             <article>
                 <p>
                     These terms and conditions outline the rules and regulations
@@ -64,11 +62,10 @@ const TermsAndConditionsPage = () => (
                 <p>
                     Unless otherwise stated, Premium Cases Design and/or it's
                     licensors own the intellectual property rights for all
-                    material on Premium Cases Design. All intellectual
-                    property rights are reserved. You may view and/or print
-                    pages from https://premiumcases.design for your own personal
-                    use subject to restrictions set in these terms and
-                    conditions.
+                    material on Premium Cases Design. All intellectual property
+                    rights are reserved. You may view and/or print pages from
+                    https://premiumcases.design for your own personal use
+                    subject to restrictions set in these terms and conditions.
                 </p>
                 <p>You must not:</p>
                 <ol>
@@ -86,9 +83,7 @@ const TermsAndConditionsPage = () => (
                     Redistribute content from Premium Cases Design (unless
                     content is specifically made for redistribution).
                 </p>
-                <h3>
-                    Hyperlinking to our Content
-                </h3>
+                <h3>Hyperlinking to our Content</h3>
                 <ol>
                     <li>
                         The following organizations may link to our Web site
@@ -174,7 +169,7 @@ const TermsAndConditionsPage = () => (
                 <p>
                     If you are among the organizations listed in paragraph 2
                     above and are interested in linking to our website, you must
-                    notify us by sending an e-mail to{' '}
+                    notify us by sending an e-mail to{" "}
                     <a
                         href="mailto:account@premiumcases.design"
                         title="send an email to account@premiumcases.design"
@@ -206,9 +201,8 @@ const TermsAndConditionsPage = () => (
                     </li>
                 </ol>
                 <p>
-                    No use of Premium Cases Design's logo or other artwork
-                    will be allowed for linking absent a trademark license
-                    agreement.
+                    No use of Premium Cases Design's logo or other artwork will
+                    be allowed for linking absent a trademark license agreement.
                 </p>
                 <h3>Iframes</h3>
                 <p>
@@ -228,9 +222,7 @@ const TermsAndConditionsPage = () => (
                     agree to be bound to and abide by these linking terms and
                     conditions.
                 </p>
-                <h3>
-                    Removal of links from our website
-                </h3>
+                <h3>Removal of links from our website</h3>
                 <p>
                     If you find any link on our Web site or any linked web site
                     objectionable for any reason, you may contact us about this.

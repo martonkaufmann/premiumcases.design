@@ -1,14 +1,12 @@
-import React from 'react';
-import Layout from '../components/layout';
-import SEO from '../components/seo';
+import React from "react";
+import Layout from "../components/layout";
+import SEO from "../components/seo";
 
 const PrivacyPolicyPage = () => (
     <Layout>
         <SEO title="Privacy Policy" />
-        <section className="prose mx-auto">
-            <h1>
-                Privacy Policy
-            </h1>
+        <section className="prose mx-auto pt-8 px-12 md:px-0">
+            <h1>Privacy Policy</h1>
             <article>
                 <p>
                     The "Premium Cases Design" website uses cookies, tracking
@@ -18,7 +16,7 @@ const PrivacyPolicyPage = () => (
                     any third parties.
                 </p>
                 <p>
-                    We use{' '}
+                    We use{" "}
                     <a
                         href="https://matomo.org/"
                         target="_blank"
@@ -26,7 +24,7 @@ const PrivacyPolicyPage = () => (
                         className="underline"
                     >
                         matomo
-                    </a>{' '}
+                    </a>{" "}
                     to track and analyze our visitors behaviour.
                 </p>
             </article>

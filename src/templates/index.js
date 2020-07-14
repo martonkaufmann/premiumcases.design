@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "gatsby";
-import { useStaticQuery, graphql } from "gatsby";
-import slugify from "slugify";
+import { useStaticQuery, graphql, Link } from "gatsby";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 import PipelineImage from "../components/image/pipeline";
 import LogoImage from "../components/image/logo";
 import PrimaryButton from "../components/button/primary";
+import CaseCard from "../components/card/case";
 
 const calculateHotCaseCount = () => {
     const hotCaseIncrement = 3;
@@ -27,23 +26,12 @@ const calculateHotCaseCount = () => {
     return hotCaseCount;
 };
 
-const IndexPage = () => {
+const IndexTemplate = ({ pageContext: { cases } }) => {
     const result = useStaticQuery(graphql`
         query {
             site {
                 siteMetadata {
                     title
-                }
-            }
-            hasura {
-                devices_by_pk(id: 2) {
-                    cases_devices(order_by: { id: desc }, limit: 45) {
-                        image
-                        case {
-                            id
-                            name
-                        }
-                    }
                 }
             }
         }
@@ -99,36 +87,14 @@ const IndexPage = () => {
                     </span>
                 </header>
                 <section className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 md:gap-12 mx-4 mb-12">
-                    {result.hasura.devices_by_pk.cases_devices
-                        .slice(0, hotCaseCount)
-                        .map(device => (
-                            <Link
-                                key={device.image}
-                                to={`/case/${device.case.id}/${slugify(
-                                    device.case.name
-                                )}`}
-                                className="flex flex-col items-center shadow rounded-lg p-4 transform transition-transform duration-150 hover:scale-105"
-                            >
-                                <PipelineImage
-                                    image={device.image}
-                                    alt={device.case.name}
-                                    operations={[
-                                        {
-                                            operation: "extract",
-                                            params: {
-                                                areawidth: 640,
-                                                areaheight: 830,
-                                                top: 80,
-                                                left: 205,
-                                            },
-                                        },
-                                    ]}
-                                />
-                                <h2 className="text-base md:text-lg font-bold mt-4">
-                                    {device.case.name}
-                                </h2>
-                            </Link>
-                        ))}
+                    {cases.slice(0, hotCaseCount).map(c => (
+                        <CaseCard
+                            key={`case-${c.id}`}
+                            image={c.image}
+                            name={c.name}
+                            id={c.id}
+                        />
+                    ))}
                 </section>
                 <section className="text-center">
                     <Link to="/catalog" className="inline-block">
@@ -195,4 +161,4 @@ const IndexPage = () => {
     );
 };
 
-export default IndexPage;
+export default IndexTemplate;

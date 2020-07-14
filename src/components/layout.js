@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import lozad from "lozad";
 import Footer from "./footer";
+import Navigation from "./navigation";
 import "./layout.css";
 
 const Layout = ({ children }) => {
@@ -11,7 +12,8 @@ const Layout = ({ children }) => {
 
     return (
         <>
-            <main className="mb-24 text-gray-900">{children}</main>
+            <Navigation />
+            <main className="mt-16 mb-24 text-gray-900">{children}</main>
             <Footer />
         </>
     );

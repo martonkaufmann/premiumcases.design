@@ -4,8 +4,9 @@ import Layout from "../components/layout";
 import SEO from "../components/seo";
 import PipelineImage from "../components/image/pipeline";
 import PrimaryButton from "../components/button/primary";
+import CaseCard from "./../components/card/case";
 
-const CaseTemplate = ({ pageContext: { case: c } }) => {
+const CaseTemplate = ({ pageContext: { case: c, recommended } }) => {
     const [deviceId, setSelectedDeviceId] = useState(1);
     const price = (c.price / 100).toFixed(2);
     const caseDevice = c.cases_devices.find(cd => cd.device.id === deviceId);
@@ -28,7 +29,7 @@ const CaseTemplate = ({ pageContext: { case: c } }) => {
                     },
                 ]}
             />
-            <section className="flex flex-col md:flex-row xl:mx-40 px-4 xl:px-0">
+            <section className="flex flex-col md:flex-row mx-4 xl:mx-40 mb-24">
                 <section>
                     <PipelineImage
                         alt={caseDevice.device.name}
@@ -96,6 +97,7 @@ const CaseTemplate = ({ pageContext: { case: c } }) => {
                         data-item-custom1-options={c.cases_devices
                             .map(({ device }) => device.name)
                             .join("|")}
+                        data-item-custom1-value={caseDevice.device.name}
                         data-item-url={`${process.env.GATSBY_APP_URL}/case/${
                             c.id
                         }/${c.id}/${slugify(c.name)}`}
@@ -107,6 +109,23 @@ const CaseTemplate = ({ pageContext: { case: c } }) => {
                         Add to cart - ${price}
                     </PrimaryButton>
                 </aside>
+            </section>
+            <section>
+                <header className="flex bg-primary text-white justify-center items-center py-4 mb-12 text-xl sm:text-2xl md:text-3xl">
+                    <span role="img" aria-label="flame">
+                        &#128293;
+                    </span>
+                    <h4 className="font-bold mx-3">You might also like</h4>
+                    <span role="img" aria-label="bomb">
+                        &#128163;
+                    </span>
+                </header>
+
+                <section className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 md:gap-12 mx-4 mb-12">
+                    {recommended.map(c => (
+                        <CaseCard key={`case-${c.id}`} {...c} />
+                    ))}
+                </section>
             </section>
         </Layout>
     );
