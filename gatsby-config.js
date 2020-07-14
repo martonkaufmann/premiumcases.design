@@ -6,7 +6,7 @@ module.exports = {
     siteMetadata: {
         title: `Premium Cases Design`,
         description: `The Premium Cases tough phone case will protect your phone from even the roughest conditions. Your custom print is durable and scratch resistant!`,
-        author: `Premium Cases | Design`,
+        author: `Premium Cases Design`,
     },
     plugins: [
         `gatsby-plugin-react-helmet`,
@@ -23,7 +23,7 @@ module.exports = {
             resolve: `gatsby-plugin-manifest`,
             options: {
                 name: `gatsby-starter-default`,
-                short_name: `Premium Cases | Design`,
+                short_name: `Premium Cases Design`,
                 start_url: `/`,
                 background_color: `#2a2938`,
                 theme_color: `#2a2938`,
