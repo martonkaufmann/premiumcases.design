@@ -9,4 +9,4 @@ const PrimaryButton = ({ children, className, ...props }) => (
     </button>
 );
 
-export default PrimaryButton;
+export { PrimaryButton };

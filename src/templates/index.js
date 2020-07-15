@@ -1,41 +1,34 @@
 import React, { useEffect, useState } from "react";
-import { useStaticQuery, graphql, Link } from "gatsby";
+import { Link } from "gatsby";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
-import PipelineImage from "../components/image/pipeline";
-import LogoImage from "../components/image/logo";
-import PrimaryButton from "../components/button/primary";
-import CaseCard from "../components/card/case";
-
-const calculateHotCaseCount = () => {
-    const hotCaseIncrement = 3;
-    let hotCaseCount = 6;
-
-    if (window.innerWidth >= 768) {
-        hotCaseCount += hotCaseIncrement;
-    }
-
-    if (window.innerWidth >= 1024) {
-        hotCaseCount += hotCaseIncrement;
-    }
-
-    if (window.innerWidth >= 1280) {
-        hotCaseCount += hotCaseIncrement;
-    }
-
-    return hotCaseCount;
-};
+import { PipelineImage } from "../components/image/pipeline";
+import { LogoImage } from "../components/image/logo";
+import { PrimaryButton } from "../components/button/primary";
+import { CaseCard } from "../components/card/case";
+import { useSiteMetadataHook } from "./../hooks/site-metadata";
 
 const IndexTemplate = ({ pageContext: { cases } }) => {
-    const result = useStaticQuery(graphql`
-        query {
-            site {
-                siteMetadata {
-                    title
-                }
-            }
+    const siteMetadata = useSiteMetadataHook();
+
+    const calculateHotCaseCount = () => {
+        const hotCaseIncrement = 3;
+        let hotCaseCount = 6;
+
+        if (window.innerWidth >= 768) {
+            hotCaseCount += hotCaseIncrement;
         }
-    `);
+
+        if (window.innerWidth >= 1024) {
+            hotCaseCount += hotCaseIncrement;
+        }
+
+        if (window.innerWidth >= 1280) {
+            hotCaseCount += hotCaseIncrement;
+        }
+
+        return hotCaseCount;
+    };
 
     const [hotCaseCount, setHotCaseCount] = useState(0);
 
@@ -66,13 +59,13 @@ const IndexTemplate = ({ pageContext: { cases } }) => {
                     <header className="flex justify-center items-center flex-col mb-8">
                         <LogoImage className="w-16 md:w-32 mb-6" />
                         <h3 className="text-3xl font-light text-center">
-                            {result.site.siteMetadata.title}
+                            {siteMetadata.title}
                         </h3>
                     </header>
                     <h1 className="text-base md:text-lg text-center mb-12">
-                        The {result.site.siteMetadata.title} phone case will
-                        protect your phone from even the roughest conditions our
-                        cases are durable and scratch resistant!
+                        The {siteMetadata.title} phone case will protect your
+                        phone from even the roughest conditions our cases are
+                        durable and scratch resistant!
                     </h1>
                 </section>
             </header>

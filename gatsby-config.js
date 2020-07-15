@@ -4,9 +4,16 @@ require("dotenv").config({
 
 module.exports = {
     siteMetadata: {
-        title: `Premium Cases Design`,
-        description: `The Premium Cases tough phone case will protect your phone from even the roughest conditions. Your custom print is durable and scratch resistant!`,
-        author: `Premium Cases Design`,
+        title: "Premium Cases Design",
+        description:
+            "The Premium Cases tough phone case will protect your phone from even the roughest conditions. Your custom print is durable and scratch resistant!",
+        author: "Premium Cases Design",
+        twitter: "https://twitter.com/cases_design",
+        pinterest: "https://www.pinterest.com/account1228/",
+        instagram: "https://www.instagram.com/premiumcases.design/",
+        url: "https://premiumcases.design",
+        logo:
+            "https://api.premiumcases.design/images/thumbnail?file=logo.webp&width=256",
     },
     plugins: [
         `gatsby-plugin-react-helmet`,

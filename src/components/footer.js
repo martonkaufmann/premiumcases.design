@@ -1,23 +1,12 @@
 import React from "react";
-import { useStaticQuery, graphql, Link } from "gatsby";
-import LogoImage from "./image/logo";
+import { Link } from "gatsby";
+import { LogoImage } from "./image/logo";
+import { useSiteMetadataHook } from "./../hooks/site-metadata";
+import { useDevicesHook } from "./../hooks/devices";
 
 const Footer = () => {
-    const result = useStaticQuery(graphql`
-        query {
-            site {
-                siteMetadata {
-                    title
-                }
-            }
-            hasura {
-                devices {
-                    id
-                    name
-                }
-            }
-        }
-    `);
+    const siteMetadata = useSiteMetadataHook();
+    const devices = useDevicesHook();
 
     return (
         <footer className="flex flex-col-reverse md:flex-row justify-between bg-secondary text-white px-4 xl:px-56 py-4">
@@ -25,7 +14,7 @@ const Footer = () => {
                 <Link to="/">
                     <LogoImage className="w-12 mb-4 mx-auto" />
                     <h3 className="text-xl font-light text-center">
-                        {result.site.siteMetadata.title}
+                        {siteMetadata.title}
                     </h3>
                 </Link>
             </section>
@@ -35,7 +24,7 @@ const Footer = () => {
                         Devices
                     </header>
                     <ul className="space-y-1">
-                        {result.hasura.devices.map(device => (
+                        {devices.map(device => (
                             <li key={device.id}>
                                 <h4>{device.name} Cases</h4>
                             </li>
@@ -74,7 +63,7 @@ const Footer = () => {
                     <ul className="space-y-1">
                         <li key="twitter">
                             <a
-                                href="https://twitter.com/cases_design"
+                                href={siteMetadata.twitter}
                                 target="_blank"
                                 rel="noreferrer"
                             >
@@ -83,7 +72,7 @@ const Footer = () => {
                         </li>
                         <li key="pinterest">
                             <a
-                                href="https://www.pinterest.com/account1228/"
+                                href={siteMetadata.pinterest}
                                 target="_blank"
                                 rel="noreferrer"
                             >
@@ -92,7 +81,7 @@ const Footer = () => {
                         </li>
                         <li key="instagram">
                             <a
-                                href="https://www.instagram.com/premiumcases.design/"
+                                href={siteMetadata.instagram}
                                 target="_blank"
                                 rel="noreferrer"
                             >

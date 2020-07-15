@@ -1,24 +1,17 @@
 import React from "react";
-import { useStaticQuery, graphql, Link } from "gatsby";
-import LogoImage from "./image/logo";
+import { Link } from "gatsby";
+import { LogoImage } from "./image/logo";
+import { useSiteMetadataHook } from "./../hooks/site-metadata";
 
 const Navigation = () => {
-    const result = useStaticQuery(graphql`
-        query {
-            site {
-                siteMetadata {
-                    title
-                }
-            }
-        }
-    `);
+    const siteMetadata = useSiteMetadataHook();
 
     return (
         <nav className="fixed w-full top-0 z-10 bg-white flex h-16 items-center justify-between px-4 xl:px-40 shadow">
             <Link to="/" className="flex items-center">
                 <LogoImage className="w-8 h-8 mr-0 md:mr-3" />
                 <h3 className="hidden md:block text-lg font-light">
-                    {result.site.siteMetadata.title}
+                    {siteMetadata.title}
                 </h3>
             </Link>
             <ul className="flex space-x-8 text-lg">

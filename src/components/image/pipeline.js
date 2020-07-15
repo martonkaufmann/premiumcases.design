@@ -22,7 +22,7 @@ const PipelineImage = ({
     operations = [],
     ...props
 }) => {
-    const url = `${process.env.GATSBY_IMAGES}/pipeline?file=${image}.jpg`;
+    const url = `${process.env.GATSBY_API_URL}/images/pipeline?file=${image}.jpg`;
     const smSrc = `${url}&operations=${JSON.stringify(
         format(operations, 480)
     )}`;
@@ -56,4 +56,4 @@ const PipelineImage = ({
     );
 };
 
-export default PipelineImage;
+export { PipelineImage };

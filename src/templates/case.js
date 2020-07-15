@@ -2,15 +2,19 @@ import React, { useState } from "react";
 import slugify from "slugify";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
-import PipelineImage from "../components/image/pipeline";
-import PrimaryButton from "../components/button/primary";
-import CaseCard from "./../components/card/case";
+import { PipelineImage } from "../components/image/pipeline";
+import { PrimaryButton } from "../components/button/primary";
+import { CaseCard } from "./../components/card/case";
+import { useSiteMetadataHook } from "./../hooks/site-metadata";
 
 const CaseTemplate = ({ pageContext: { case: c, recommended } }) => {
+    const siteMetadata = useSiteMetadataHook();
     const [deviceId, setSelectedDeviceId] = useState(1);
     const price = (c.price / 100).toFixed(2);
     const caseDevice = c.cases_devices.find(cd => cd.device.id === deviceId);
-    const caseDefaultImageUrl = `${process.env.GATSBY_IMAGES}/resize?file=${
+    const caseDefaultImageUrl = `${
+        process.env.GATSBY_API_URL
+    }/images/resize?file=${
         c.cases_devices.find(cd => cd.device.id === 2).image
     }.jpg&width=640`;
 
@@ -98,9 +102,9 @@ const CaseTemplate = ({ pageContext: { case: c, recommended } }) => {
                             .map(({ device }) => device.name)
                             .join("|")}
                         data-item-custom1-value={caseDevice.device.name}
-                        data-item-url={`${process.env.GATSBY_APP_URL}/case/${
+                        data-item-url={`${siteMetadata.url}/case/${c.id}/${
                             c.id
-                        }/${c.id}/${slugify(c.name)}`}
+                        }/${slugify(c.name)}`}
                         className="snipcart-add-item w-full md:w-auto"
                     >
                         <span role="img" aria-label="Cart">

@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "gatsby";
 import slugify from "slugify";
-import PipelineImage from "./../image/pipeline";
+import { PipelineImage } from "./../image/pipeline";
 
 const CaseCard = ({ image, name, id }) => (
     <Link
@@ -28,4 +28,4 @@ const CaseCard = ({ image, name, id }) => (
     </Link>
 );
 
-export default CaseCard;
+export { CaseCard };
