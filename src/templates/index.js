@@ -71,11 +71,11 @@ const IndexTemplate = ({ pageContext: { cases } }) => {
             </header>
             <section className="mb-24">
                 <header className="flex bg-primary text-white justify-center items-center py-4 mb-12 text-xl sm:text-2xl md:text-3xl">
-                    <span role="img" aria-label="flame">
+                    <span role="img" aria-label="Flame">
                         &#128293;
                     </span>
                     <h4 className="font-bold mx-3">HOT New Cases</h4>
-                    <span role="img" aria-label="bomb">
+                    <span role="img" aria-label="Bomb">
                         &#128163;
                     </span>
                 </header>

@@ -3,15 +3,16 @@ import { Link } from "gatsby";
 import slugify from "slugify";
 import { PipelineImage } from "./../image/pipeline";
 
-const CaseCard = ({ image, name, id }) => (
+const CaseCard = ({ image, name, id, lazy = true }) => (
     <Link
         key={image}
         to={`/case/${id}/${slugify(name)}`}
-        className="flex flex-col items-center shadow rounded-lg p-4 transform transition-transform duration-150 hover:scale-105"
+        className={`flex flex-col items-center shadow rounded-lg p-4 transform transition-transform duration-150 h-full hover:scale-105`}
     >
         <PipelineImage
             image={image}
             alt={name}
+            lazy={lazy}
             operations={[
                 {
                     operation: "extract",
