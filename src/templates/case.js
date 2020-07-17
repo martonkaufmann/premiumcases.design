@@ -102,7 +102,7 @@ const CaseTemplate = ({ pageContext: { case: c, recommended } }) => {
                             .map(({ device }) => device.name)
                             .join("|")}
                         data-item-custom1-value={caseDevice.device.name}
-                        data-item-url={`${siteMetadata.url}/case/${c.id}/${
+                        data-item-url={`${siteMetadata.url}/case/${
                             c.id
                         }/${slugify(c.name)}`}
                         className="snipcart-add-item w-full md:w-auto"
