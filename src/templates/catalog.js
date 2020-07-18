@@ -52,26 +52,28 @@ const CatalogTemplate = ({ pageContext: { cases } }) => {
             </section>
             <section className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 md:gap-12 mx-4 mb-12">
                 {results.length === 0 ? (
-                    <h5 className="col-span-5 text-center text-2xl">No cases matching the search criteria were found</h5>
+                    <h5 className="col-span-5 text-center text-2xl">
+                        No cases matching the search criteria were found
+                    </h5>
                 ) : (
-                results.map((c, index) => (
-                    <motion.div
-                        initial={{ opacity: 0, x: -10 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{
-                            duration: 0.5,
-                            delay: (index + 1) * 0.02,
-                        }}
-                        key={`case-${index}-${c.id}`}
-                    >
-                        <CaseCard
-                            lazy={results.length > 10}
-                            image={c.image}
-                            name={c.name}
-                            id={c.id}
-                        />
-                    </motion.div>
-                ))
+                    results.map((c, index) => (
+                        <motion.div
+                            initial={{ opacity: 0, x: -10 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{
+                                duration: 0.5,
+                                delay: (index + 1) * 0.02,
+                            }}
+                            key={`case-${index}-${c.id}`}
+                        >
+                            <CaseCard
+                                lazy={results.length > 10}
+                                image={c.image}
+                                name={c.name}
+                                id={c.id}
+                            />
+                        </motion.div>
+                    ))
                 )}
             </section>
         </Layout>

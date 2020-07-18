@@ -54,6 +54,11 @@ const Footer = () => {
                         <li key="privacy-policy">
                             <Link to="/privacy-policy">Privacy Policy</Link>
                         </li>
+                        <li key="contact-us">
+                            <a href="mailto:account@premiumcases.design">
+                                Contact Us
+                            </a>
+                        </li>
                     </ul>
                 </section>
                 <section>
