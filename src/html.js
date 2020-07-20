@@ -25,11 +25,6 @@ export default function HTML(props) {
                     dangerouslySetInnerHTML={{ __html: props.body }}
                 />
                 {props.postBodyComponents}
-                {/* <script
-                    async={true}
-                    crossOrigin="*"
-                    src={`https://embed.tawk.to/${process.env.GATSBY_TAWK_TOKEN}/default`}
-                /> */}
                 <script
                     defer={true}
                     crossOrigin="*"
@@ -53,6 +48,18 @@ export default function HTML(props) {
                                 r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
                                 a.appendChild(r);
                             })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+                        `,
+                    }}
+                />
+                <script async={true} src="https://www.googletagmanager.com/gtag/js?id=UA-145723230-5" />
+                <script
+                    dangerouslySetInnerHTML={{
+                        __html: `
+                            window.dataLayer = window.dataLayer || [];
+                            function gtag(){dataLayer.push(arguments);}
+                            gtag('js', new Date());
+
+                            gtag('config', 'UA-145723230-5');
                         `,
                     }}
                 />
