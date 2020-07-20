@@ -12,6 +12,7 @@ module.exports = {
         pinterest: "https://www.pinterest.com/account1228/",
         instagram: "https://www.instagram.com/premiumcases.design/",
         url: "https://premiumcases.design",
+        siteUrl: "https://premiumcases.design", // for gatsby-plugin-sitemap plugin
         logo:
             "https://api.premiumcases.design/images/thumbnail?file=logo.webp&width=256",
     },
@@ -49,6 +50,7 @@ module.exports = {
                 },
             },
         },
+        `gatsby-plugin-sitemap`,
         `gatsby-plugin-postcss`,
         // this (optional) plugin enables Progressive Web App + Offline functionality
         // To learn more, visit: https://gatsby.dev/offline
