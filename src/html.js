@@ -12,6 +12,7 @@ export default function HTML(props) {
                     content="width=device-width, initial-scale=1, shrink-to-fit=no"
                 />
                 {props.headComponents}
+                {/* Snipcart */}
                 <link
                     rel="stylesheet"
                     href="https://cdn.snipcart.com/themes/v3.0.17/default/snipcart.css"
@@ -25,11 +26,13 @@ export default function HTML(props) {
                     dangerouslySetInnerHTML={{ __html: props.body }}
                 />
                 {props.postBodyComponents}
+                {/* jQuery */}
                 <script
                     defer={true}
                     crossOrigin="*"
                     src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"
                 />
+                {/* Snipcart */}
                 <script
                     defer={true}
                     crossOrigin="*"
@@ -37,6 +40,7 @@ export default function HTML(props) {
                     id="snipcart"
                     data-api-key={process.env.GATSBY_SNIPCART_TOKEN}
                 />
+                {/* Hotjat */}
                 <script
                     dangerouslySetInnerHTML={{
                         __html: `
@@ -51,7 +55,11 @@ export default function HTML(props) {
                         `,
                     }}
                 />
-                <script async={true} src="https://www.googletagmanager.com/gtag/js?id=UA-145723230-5" />
+                {/* Google Analytics */}
+                <script
+                    async={true}
+                    src="https://www.googletagmanager.com/gtag/js?id=UA-145723230-5"
+                />
                 <script
                     dangerouslySetInnerHTML={{
                         __html: `

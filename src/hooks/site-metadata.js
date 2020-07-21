@@ -15,6 +15,7 @@ const useSiteMetadataHook = () => {
                         instagram
                         pinterest
                         logo
+                        twitterHandle
                     }
                 }
             }

@@ -15,6 +15,7 @@ module.exports = {
         siteUrl: "https://premiumcases.design", // for gatsby-plugin-sitemap plugin
         logo:
             "https://api.premiumcases.design/images/thumbnail?file=logo.webp&width=256",
+        twitterHandle: "cases_design",
     },
     plugins: [
         `gatsby-plugin-react-helmet`,

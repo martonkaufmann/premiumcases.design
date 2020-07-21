@@ -1,6 +1,6 @@
 import React from "react";
 
-const format = (operations, width) => [
+const format = (operations, width = 1024) => [
     ...operations,
     {
         operation: "resize",
@@ -20,26 +20,31 @@ const PipelineImage = ({
     lazy = true,
     className = "",
     operations = [],
+    breakpoints = [
+        [480, 480],
+        [960, 960],
+        [1280, 1280],
+    ],
     ...props
 }) => {
     const url = `${process.env.GATSBY_API_URL}/images/pipeline?file=${image}.jpg`;
-    const smSrc = `${url}&operations=${JSON.stringify(
-        format(operations, 480)
-    )}`;
-    const mdSrc = `${url}&operations=${JSON.stringify(
-        format(operations, 800)
-    )}`;
-    const lgSrc = `${url}&operations=${JSON.stringify(
-        format(operations, 1024)
-    )}`;
+    const src = `${url}&operations=${JSON.stringify(format(operations))}`;
+    let srcSet = "";
+
+    for (const [screenWidth, imageWidth] of breakpoints) {
+        const imgSrc = `${url}&operations=${JSON.stringify(
+            format(operations, imageWidth)
+        )}`;
+        srcSet += `${imgSrc} ${screenWidth}w,`;
+    }
 
     if (!lazy) {
         return (
             <img
                 className={`block mx-auto ${className}`}
                 alt={alt}
-                src={lgSrc}
-                srcSet={`${smSrc} 480w, ${mdSrc} 960w, ${lgSrc} 1280w`}
+                src={src}
+                srcSet={srcSet}
                 {...props}
             />
         );
@@ -49,8 +54,8 @@ const PipelineImage = ({
         <img
             className={`lozad block mx-auto ${className}`}
             alt={alt}
-            data-src={lgSrc}
-            data-srcset={`${smSrc} 480w, ${mdSrc} 960w, ${lgSrc} 1280w`}
+            data-src={src}
+            data-srcset={srcSet}
             {...props}
         />
     );

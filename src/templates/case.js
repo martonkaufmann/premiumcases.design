@@ -3,6 +3,8 @@ import slugify from "slugify";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 import { PipelineImage } from "../components/image/pipeline";
+import { Pinterest } from "./../components/social/pinterest";
+import { Twitter } from "./../components/social/twitter";
 import { PrimaryButton } from "../components/button/primary";
 import { CaseCard } from "./../components/card/case";
 import { useSiteMetadataHook } from "./../hooks/site-metadata";
@@ -17,6 +19,7 @@ const CaseTemplate = ({ pageContext: { case: c, recommended } }) => {
     }/images/resize?file=${
         c.cases_devices.find(cd => cd.device.id === 2).image
     }.jpg&width=640`;
+    const caseUrl = `${siteMetadata.url}/case/${c.id}/${slugify(c.name)}`;
 
     return (
         <Layout>
@@ -43,7 +46,13 @@ const CaseTemplate = ({ pageContext: { case: c, recommended } }) => {
                 </section>
                 <aside className="mt-16">
                     <h1 className="text-2xl font-bold mb-2">{c.name}</h1>
-                    <section className="mb-12">${price}</section>
+                    <section className="mb-6">${price}</section>
+                    <section className="mb-12 flex space-x-2">
+                        <Pinterest media={caseDefaultImageUrl} url={caseUrl} />
+                        <Twitter
+                            text={`Awesome case by @${siteMetadata.twitterHandle}\n${caseUrl}`}
+                        />
+                    </section>
                     <section className="mb-12">
                         <ol>
                             <li className="mb-1">
@@ -102,9 +111,7 @@ const CaseTemplate = ({ pageContext: { case: c, recommended } }) => {
                             .map(({ device }) => device.name)
                             .join("|")}
                         data-item-custom1-value={caseDevice.device.name}
-                        data-item-url={`${siteMetadata.url}/case/${
-                            c.id
-                        }/${slugify(c.name)}`}
+                        data-item-url={caseUrl}
                         className="snipcart-add-item w-full md:w-auto"
                     >
                         <span role="img" aria-label="Cart">
