@@ -66,12 +66,7 @@ const CatalogTemplate = ({ pageContext: { cases } }) => {
                             }}
                             key={`case-${index}-${c.id}`}
                         >
-                            <CaseCard
-                                lazy={results.length > 10}
-                                image={c.image}
-                                name={c.name}
-                                id={c.id}
-                            />
+                            <CaseCard lazy={results.length > 10} {...c} />
                         </motion.div>
                     ))
                 )}

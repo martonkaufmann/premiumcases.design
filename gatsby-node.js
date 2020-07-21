@@ -33,7 +33,7 @@ exports.createPages = async ({ actions, graphql }) => {
     `);
 
     const scrubbed = cases.map(r => {
-        const { cases_devices, price, ...props } = r;
+        const { cases_devices, ...props } = r;
 
         props.image = cases_devices.find(cd => cd.device.id === 2).image;
         props.devices = cases_devices.map(cd => cd.device.name);

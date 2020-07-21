@@ -3,7 +3,7 @@ import { Link } from "gatsby";
 import slugify from "slugify";
 import { PipelineImage } from "./../image/pipeline";
 
-const CaseCard = ({ image, name, id, lazy = true }) => (
+const CaseCard = ({ image, name, price, id, lazy = true }) => (
     <Link
         key={image}
         to={`/case/${id}/${slugify(name)}`}
@@ -25,7 +25,10 @@ const CaseCard = ({ image, name, id, lazy = true }) => (
                 },
             ]}
         />
-        <h2 className="text-base md:text-lg font-bold mt-4">{name}</h2>
+        <footer className="mt-4">
+            <h2 className="text-base md:text-lg font-bold">{name}</h2>
+            <span className="text-sm">${(price / 100).toFixed(2)}</span>
+        </footer>
     </Link>
 );
 

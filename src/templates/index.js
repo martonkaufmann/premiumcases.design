@@ -81,12 +81,7 @@ const IndexTemplate = ({ pageContext: { cases } }) => {
                 </header>
                 <section className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 md:gap-12 mx-4 mb-12">
                     {cases.slice(0, hotCaseCount).map(c => (
-                        <CaseCard
-                            key={`case-${c.id}`}
-                            image={c.image}
-                            name={c.name}
-                            id={c.id}
-                        />
+                        <CaseCard key={`case-${c.id}`} {...c} />
                     ))}
                 </section>
                 <section className="text-center">
