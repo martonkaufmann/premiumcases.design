@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "gatsby";
 import slugify from "slugify";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
@@ -122,21 +123,24 @@ const CaseTemplate = ({ pageContext: { case: c, recommended } }) => {
                 </aside>
             </section>
             <section>
-                <header className="flex bg-primary text-white justify-center items-center py-4 mb-12 text-xl sm:text-2xl md:text-3xl">
-                    <span role="img" aria-label="flame">
-                        &#128293;
-                    </span>
-                    <h4 className="font-bold mx-3">You might also like</h4>
-                    <span role="img" aria-label="bomb">
-                        &#128163;
-                    </span>
-                </header>
-
+                <h4 className="bg-primary text-white text-center py-4 mb-12 text-xl sm:text-2xl md:text-3xl font-bold mx-3">
+                    You might also like
+                </h4>
                 <section className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 md:gap-12 mx-4 mb-12">
                     {recommended.map(c => (
                         <CaseCard key={`case-${c.id}`} {...c} />
                     ))}
                 </section>
+            </section>
+            <section className="text-center">
+                <Link to="/catalog" className="inline-block">
+                    <PrimaryButton>
+                        <span role="img" aria-label="Browse">
+                            &#128064;
+                        </span>{" "}
+                        Browse catalog
+                    </PrimaryButton>
+                </Link>
             </section>
         </Layout>
     );
