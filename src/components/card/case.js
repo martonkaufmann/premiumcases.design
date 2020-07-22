@@ -25,7 +25,7 @@ const CaseCard = ({ image, name, price, id, lazy = true }) => (
                 },
             ]}
         />
-        <footer className="mt-4">
+        <footer className="mt-4 w-full">
             <h2 className="text-base md:text-lg font-bold">{name}</h2>
             <span className="text-sm">${(price / 100).toFixed(2)}</span>
         </footer>
