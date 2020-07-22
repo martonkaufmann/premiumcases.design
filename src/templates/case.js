@@ -37,6 +37,10 @@ const CaseTemplate = ({ pageContext: { case: c, recommended } }) => {
                     },
                 ]}
             />
+            <header className="bg-primary text-white text-lg py-3 text-center font-bold">
+                LAUNCH DISCOUNT! Use the following discount code when checking
+                out to get a 20% discount. Code: PCD20
+            </header>
             <section className="flex flex-col md:flex-row mx-4 xl:mx-40 mb-24">
                 <section>
                     <PipelineImage
