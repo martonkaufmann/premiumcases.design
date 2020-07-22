@@ -7,6 +7,7 @@
 // You can delete this file if you're not using it
 
 const slugify = require("slugify");
+const Fuse = require("fuse.js");
 
 exports.createPages = async ({ actions, graphql }) => {
     const {
@@ -40,18 +41,25 @@ exports.createPages = async ({ actions, graphql }) => {
 
         return props;
     });
-    const recommended = scrubbed.slice(0, 16);
 
-    for (const [index, c] of cases.entries()) {
-        const r =
-            index < 15
-                ? recommended.filter(d => d.id !== c.id)
-                : recommended.slice(0, 15);
+    const fuse = new Fuse(scrubbed, {
+        findAllMatches: true,
+        keys: ["name"],
+    });
+
+    for (const c of cases) {
+        const recommended = fuse
+            .search({
+                $or: c.name.split(' ').map(s => ({name: s}))
+            })
+            .filter(r => r.item.id !== c.id)
+            .map(r => r.item)
+            .slice(0, 15)
 
         actions.createPage({
             path: `/case/${c.id}/${slugify(c.name)}`,
             component: require.resolve(`./src/templates/case.js`),
-            context: { case: c, recommended: r },
+            context: { case: c, recommended },
         });
     }
 
