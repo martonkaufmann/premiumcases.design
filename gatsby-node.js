@@ -50,11 +50,11 @@ exports.createPages = async ({ actions, graphql }) => {
     for (const c of cases) {
         const recommended = fuse
             .search({
-                $or: c.name.split(' ').map(s => ({name: s}))
+                $or: c.name.split(" ").map(s => ({ name: s })),
             })
             .filter(r => r.item.id !== c.id)
             .map(r => r.item)
-            .slice(0, 15)
+            .slice(0, 15);
 
         actions.createPage({
             path: `/case/${c.id}/${slugify(c.name)}`,

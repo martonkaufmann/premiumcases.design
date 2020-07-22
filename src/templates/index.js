@@ -111,7 +111,7 @@ const IndexTemplate = ({ pageContext: { cases } }) => {
                     </h3>
                 </section>
             </section>
-            <section className="md:flex">
+            <section className="md:flex mb-24">
                 <div className="flex-1 mb-24 md:mb-0">
                     <PipelineImage
                         className="mb-6"
@@ -144,6 +144,37 @@ const IndexTemplate = ({ pageContext: { cases } }) => {
                         </p>
                     </h3>
                 </div>
+            </section>
+            <section className="mb-24">
+                <h4 className="py-4 mb-12 text-xl sm:text-2xl md:text-3xl font-bold mx-3 text-center">
+                    Our Partners
+                </h4>
+                <section>
+                    <a
+                        href="https://printify.com"
+                        target="_blank"
+                        rel="noreferrer"
+                        className="block mb-12"
+                    >
+                        <PipelineImage
+                            className="w-64"
+                            image="printify"
+                            alt="Partner Printify"
+                        />
+                    </a>
+                    <a
+                        href="https://www.whosonyourcase.com/"
+                        target="_blank"
+                        rel="noreferrer"
+                        className="block"
+                    >
+                        <PipelineImage
+                            className="w-64"
+                            image="whosonyourcase"
+                            alt="Partner Who's On Your Case"
+                        />
+                    </a>
+                </section>
             </section>
         </Layout>
     );
